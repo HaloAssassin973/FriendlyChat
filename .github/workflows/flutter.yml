@@ -1,8 +1,6 @@
 name: Flutter
 
 on:
-  push:
-    branches: [ main ]
   pull_request:
     branches: [ main ]
 
@@ -22,7 +20,7 @@ jobs:
       run: flutter pub get
       
     - name: Build Android version
-      run: flutter build apk
+      run: flutter build appbundle --target-platform android-arm,android-arm64,android-x64
     
     - name: Build iOS version
       run: flutter build ios --release --no-codesign
